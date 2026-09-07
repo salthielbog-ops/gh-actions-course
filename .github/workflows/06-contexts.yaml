@@ -5,7 +5,7 @@ on:
       debug:
         type: boolean
         default: false
-  push:
+  #push:
 run-name: "06 - Contexts | DEBUG - ${{ inputs.debug }}"
 env:
   MY_WORKFLOW_VAR: 'workflow'
@@ -29,6 +29,8 @@ jobs:
         echo "Workflow env: ${{env.MY_WORKFLOW_VAR}}"
         echo "Overwritten env: ${{env.MY_OVERWRITTEN_VAR}}"
     - name: Retrieve Variable
+      env:
+        MY_OVERWRITTEN_VAR: 'sal'
       run: |
         echo "MY_VAR= ${{vars.MY_VAR}}"
         echo "Workflow env: ${{env.MY_WORKFLOW_VAR}}"
